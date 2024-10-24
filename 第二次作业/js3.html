@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>动态更新和删除列表项</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        li {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 500px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .input-content {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('addItem').addEventListener('click', addItem);
+        });
+
+        function addItem() {
+            const itemInput = document.getElementById('itemInput').value;
+
+            if (itemInput === '') {
+                alert('请输入有效的项');
+                return;
+            }
+
+            const list = document.getElementById('myList');
+
+            // 创建新列表项
+            const newItem = document.createElement('li');
+            newItem.textContent = itemInput;
+
+            // 创建编辑按钮
+            const editButton = document.createElement('button');
+            editButton.textContent = '编辑';
+            editButton.addEventListener('click', () => {
+                editItem(newItem);
+            });
+
+            // 创建删除按钮
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = '删除';
+            deleteButton.addEventListener('click', () => {
+                list.removeChild(newItem);
+            });
+
+            // 将按钮添加到列表项
+            newItem.appendChild(editButton);
+            newItem.appendChild(deleteButton);
+            list.appendChild(newItem);
+
+            // 清空输入框
+            document.getElementById('itemInput').value = '';
+        }
+
+        function editItem(item) {
+            const currentText = item.firstChild.textContent; // 获取当前项文本
+            const newText = prompt('编辑项', currentText); // 弹出输入框
+
+            if (newText !== null && newText.trim() !== '') {
+                item.firstChild.textContent = newText; // 更新项文本
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>动态列表管理</h1>
+    <ul id="myList"></ul>
+    <div class="input-content">
+        <input type="text" id="itemInput" placeholder="新项">
+        <button id="addItem">添加项</button>
+    </div>
+</body>
+</html>

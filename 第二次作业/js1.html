@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>动态改变文档内容</title>
+    <script>
+        function changeTitleAndShowTime() {
+            // 改变 h1 的内容
+            document.querySelector('h1').textContent = '欢迎来到我的网站';
+
+            // 获取当前时间
+            const currentTime = new Date().toLocaleString();
+            document.getElementById('currentTime').textContent = '当前时间: ' + currentTime;
+        }
+    </script>
+</head>
+<body>
+    <h1>初始标题</h1>
+    <button id="changeTitle" onclick="changeTitleAndShowTime()">改变标题</button>
+    <div id="currentTime"></div>
+</body>
+</html>
