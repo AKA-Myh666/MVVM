@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+.resume-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative; 
+}
+
+.resume-header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.resume-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.header-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.resume-details {
+    text-align: center; 
+    margin: 10px 0; 
+    font-size: 14px; 
+    color: #333; 
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.section p,
+.section ul {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.job {
+    margin-bottom: 15px;
+}
+
+.job h3 {
+    font-size: 18px;
+    font-weight: bold;
+    display: flex; /* 使工作经历标题为flex布局 */
+    justify-content: space-between; /* 左右对齐 */
+    align-items: center; /* 垂直居中 */
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+.profile-photo {
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    position: absolute;
+    top: 20px; 
+    right: 20px; 
+    object-fit: cover; 
+}
